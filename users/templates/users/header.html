@@ -1,0 +1,188 @@
+{% load static %}
+
+
+<header>
+   
+  <nav class="navbar">
+    <div class="logo_header">
+      <a href="/"class="nav_links logo"><img src="{% static 'images/logo-nobg.png' %}" height="80px"  alt="" srcset=""></a>
+      <button class="navbar_toggle">
+        <i class=" fas fa-bars"></i>
+      </button>
+    </div>
+
+    
+    <ul class="main_nav">
+      <li>
+        <a href="#" class="nav_links">New Releases</a>
+        <!-- Dropdown content -->
+        <div class="dropdown-content">
+          <a href="/productdetails/7">ChronoTech Voyager</a>
+          <a href="/productdetails/7">Harmony Serenade Symphony</a>
+          <a href="/productdetails/7">Titan Black Knight</a>
+        </div>
+      </li>
+      <li>
+        <a href="#" class="nav_links">Mens</a>
+        <!-- Dropdown content -->
+        <div class="dropdown-content">
+          <a href="/productdetails/7">Aviator Elite Navigator</a>
+          <a href="/productdetails/10">Summit Alpha Sport</a>
+          
+          
+        </div>
+      </li>
+      <li>
+        <a href="#" class="nav_links">Womens</a>
+        <!-- Dropdown content -->
+        <div class="dropdown-content">
+          <a href="/productdetails/7">Nova Crystal Infinity</a>
+          <a href="/productdetails/8">Empress Royale Orchid</a>
+          <a href="/productdetails/10">Aurora Rose Gold Elegance</a>
+        </div>
+      </li>
+      <li>
+        <a href="#" class="nav_links">Sale</a>
+        <!-- Dropdown content -->
+        <div class="dropdown-content">
+          <a href="#">10% Off Items</a>
+          <a href="#">20% Off Items</a>
+        </div>
+      </li>
+      <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+        <i class="fas fa-search search-icon" onclick="togglePlaceholder()"></i>
+        
+      </div>
+      <div class="shopping-cart">
+        <a href="/cart "><i class="fas fa-shopping-cart" style="color: #000000;"></i> </a>
+        <!-- <a href="#"> <i class="fas fa-user"></i></a> -->
+      </div>
+      <div class="text-end">
+        {% if user.is_authenticated %}
+        <a href="/logout" type="button" class="btn btn-danger">Log Out</a>
+        {% else %}
+        <a href="/login" type="button" class="btn btn-outline-dark me-2">Login</a>
+        <a href="/register" type="button" class="btn btn-warning">Sign-up</a>
+
+        {% endif %}
+      </div>
+      
+      
+    </ul>
+       
+  </nav>
+  </header>
+  <style>
+    a{
+    text-decoration: none;
+  }
+  .logo{
+    position: relative;
+    top: 2px;
+    right: 10px;
+  }
+    
+  .navbar{
+    display: flex;
+    /* justify-content: space-between; */
+    /* width: 99vw; */
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #f8f8f8;
+    font-size: 20px;
+    box-shadow: 0px 2.98256px 7.4564px rgba(35, 2, 2, 0.1);
+  }
+  .navbar_toggle {
+    display: none;
+    }
+  
+  .logo_header{
+    display: flex;
+    margin-left: 2%;
+  }
+  
+  .main_nav{
+    display: flex;
+    width: 80%;
+    margin-right: 2%;
+    justify-content:space-evenly; 
+    align-items: center;
+    list-style: none;
+  }
+  .main_nav li a:hover{
+    color: rgb(103, 97, 97);
+  }
+  
+  .main_nav li{
+    display: inline;
+    color: #000000;
+    font-family: "Sora", sans-serif;
+  font-weight: 400;
+  }
+  .main_nav li a{
+    color: #000000;
+  }
+  /* Hide dropdown content by default */
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  }
+
+  /* Style the links inside the dropdown */
+  .dropdown-content a {
+  color: black;
+  padding: 30px 150px;
+  text-decoration: none;
+  display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+  background-color: #ddd8d8;
+  }
+
+  /* Show the dropdown menu on hover */
+  .main_nav li:hover .dropdown-content {
+  display: block;
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 2%;
+    justify-content: space-evenly;
+  }
+  
+  .search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 4px;
+  }
+  
+  .search-icon {
+    cursor: pointer;
+  }
+  </style>
+
+  <script>
+    const navToggle = document.querySelector(".navbar_toggle");
+const links = document.querySelector(".main_nav");
+
+navToggle.addEventListener('click', function(){
+    links.classList.toggle("show_nav");
+})
+
+function togglePlaceholder() {
+    var input = document.getElementById("searchInput");
+    if (input.placeholder === "") {
+        input.placeholder = "Search...";
+    } else {
+        input.placeholder = "";
+    }
+}
+  </script>

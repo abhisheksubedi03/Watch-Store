@@ -1,0 +1,253 @@
+{% load static %}
+
+ 
+
+  <footer>
+    <div class="footer-line">
+      <div class="line"></div>
+        <div class="logo-container">
+          <img src="{% static 'images/logo-nobg.png' %}" alt="Your Logo">
+        </div>
+      <div class="line"></div>
+    </div>
+  </footer>
+  <div class="color">
+    <div class="footer-links">
+      <div class="column">
+          <h3>New Releases</h3>
+          <ul>
+              <li><a href="#">ChronoTech Voyager</a></li>
+              <li><a href="#">Harmony Serenade Symphony</a></li>
+              <li><a href="#">Titan Black Knight</a></li>
+          </ul>
+      </div>
+      <div class="column">
+          <h3>Mens</h3>
+          <ul>
+              <li><a href="#">Aviator Elite Navigator</a></li>
+              <li><a href="#">Summit Alpha Sport</a></li>
+              <li><a href="#">Horizon Navigator Pro</a></li>
+          </ul>
+      </div>
+      <div class="column">
+          <h3>Womens</h3>
+          <ul>
+              <li><a href="#">Nova Crystal Infinity</a></li>
+              <li><a href="#">Empress Royale Orchid</a></li>
+              <li><a href="#">Aurora Rose Gold Elegance</a></li>
+          </ul>
+      </div>
+      
+  </div>
+  <div class="footer-social">
+      <h3>Follow Us</h3>
+      <ul>
+          <li><a href="#"><img src="{% static 'images/facebook.svg' %}" alt="Facebook"></a></li>
+          <li><a href="#"><img src="{% static 'images/x-twitter.svg' %}" alt="Twitter"></a></li>
+          <li><a href="#"><img src="{% static 'images/instagram.svg' %}" alt="Instagram"></a></li>
+      </ul>
+  </div>
+  <div class="copyright">
+      <p>&copy; 2024 Infinity Times. All rights reserved.</p>
+  </div>
+</div>
+  
+  <script src="./script.js"></script>
+</body>
+</html>
+
+<style>
+  .testimonials-container {
+	padding: 0 30px;
+	margin: 30px 0 50px;
+	position: relative;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+.testimonials {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: space-evenly;
+}
+
+.testimonials-container h2 {
+	padding: 10px 10px 15px;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto 30px;
+}
+
+.testimonial {
+	width: 25%;
+	border-radius: 20px;
+	background: linear-gradient(to right bottom, #fabf8f60, #ffc0a660, #ffc4bc60, #ffcbcf60, #f7d3dd60);
+	padding: 20px;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.testimonial:after {
+  content: "";
+  display: block; /* reduce the damage in FF3.0 */
+  position: absolute;
+  bottom: -15px;
+  right: 50px;
+  width: 0;
+  border-width: 15px 20px 0;
+  border-style: solid;
+  border-color: #F7D3DD60 transparent;
+}
+
+.testimonial h3 {
+	margin-bottom: 10px;
+}
+.testimonial h3{
+  font-family: "SORA",sans-serif;
+}
+.testimonials-container h2{
+  font-family: "SORA",sans-serif;
+}
+
+.testimonial p {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.testimonal-author {
+	font-size: 1rem;
+	position: absolute;
+	bottom: -40px;
+	right: 0;
+}
+
+.footer-line {
+  text-align: center;
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  width: 45%; /* Adjust this value to control the length of the line */
+  height: 4px;
+  background-color: black;
+  z-index: 1;
+}
+
+.line:first-of-type {
+  left: 0;
+}
+
+.line:last-of-type {
+  right: 0;
+}
+
+.logo-container {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.logo-container img{
+  height: 120px;
+}
+
+footer {
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 100%;
+  max-width: 300px; /* Adjust as needed */
+  margin-bottom: 20px;
+}
+
+.column h3 {
+  color: #333;
+  font-size: larger;
+  margin-bottom: 10px;
+  margin-left: 90px;
+  font-family: "Sora", sans-serif;
+
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 90px;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+  font-family: "Sora", sans-serif;
+}
+
+.footer-links ul li a {
+  color: #666;
+  text-decoration: none;
+  font-size: small;
+}
+.footer-links ul li a:hover {
+  color: #802828;
+}
+
+.footer-social {
+  margin-top: 20px;
+}
+
+.footer-social h3 {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+  text-align: center; /* Adjusted */
+}
+
+.footer-social ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social ul li:last-child {
+  margin-right: 0;
+}
+
+.footer-social ul li img {
+  width: 30px;
+  height: 30px;
+}
+
+.copyright {
+  margin-top: 20px;
+  color: #666;
+  text-align: center; /* Adjusted */
+}
+.color{
+  background-color: #f4f4f4;
+}
+
+
+.best-sellers {
+  text-align: center;
+  margin-top: 50px;
+}
+.best-sellers h2{
+  font-family: "Sora",sans-serif;
+  font-size: x-larger;
+
+}
+</style>

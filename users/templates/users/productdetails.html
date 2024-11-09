@@ -1,0 +1,239 @@
+{% extends 'layouts.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+<title>Ecommerce-Product details</title>
+{% endblock %}
+
+{% block main-content %}
+{% include 'users/header.html' %}
+
+<!-- start of product section -->
+<!-- <div class="container-fluid my-3">
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-md-3">
+           <img src="/{{product.product_image}}" alt="{{product.product_name}}" width="500px" height="400px">
+        </div>
+        <div class="col-md-8">
+           <h1>{{product.product_name}}</h1>
+           <h3 class="text-success">Rs. {{product.product_price}}</h3>
+           <strong> Available stock: {{product.stock}} </strong>
+           <br>
+           <strong> Category: {{product.category}} </strong>
+           <br>
+           <p>{{product.product_description}}</p>
+           <div class="my-3">
+            <a href="/addtocart/{{product.id}}" class="btn btn-warning">Add to Cart</a>
+           </div>
+        </div>
+    </div>
+
+</div> -->
+<main>
+<div class="div1">
+    <img src="/{{product.product_image}}" alt="{{product.product_name}}" height="500px">
+    
+</div>
+
+<div class="div2">
+    <h2>{{product.product_name}}</h2>
+    <p><i class="fa-solid fa-star"></i>&nbsp;&nbsp;&nbsp;Water Resistance</p>
+    <hr>
+    <h4>Description</h4>
+    <p>
+        {{product.product_description}}
+    </p>
+    <br>
+    <h5>Price: &nbsp;Rs. {{product.product_price}}</h5>
+    <br>
+    <br>
+    <br>
+     <!-- <div class="price-btnbox"> -->
+        <!-- <div class="price-btns">
+          <button class="price-btn__add price-btn">
+             <p class="price-btn__add-img price-btn__img">+</p> 
+           
+          </button>
+          <span class="price-btn__txt">0</span>
+          <button class="price-btn__remove price-btn">
+            
+              <p class="price-btn__remove-img price-btn__img">-</p>
+            
+          </button> -->
+          <button class="favorites">Add to favorites</button>
+        <!-- </div>  -->
+        
+          
+
+        <a href="/addtocart/{{product.id}}" style="text-decoration: none;position: relative;left: 250px;">
+            <button class="price-cart__btn btn--orange" onclick="addToCart()">
+                <!-- <img
+                  class="price-cart__btn-img"
+                /> -->
+                Add to cart
+              </button>
+        </a>
+      </div>
+</div>
+</main>
+<script>
+        
+    const plus=document.querySelector(".price-btn__add-img"),
+    minus=document.querySelector(".price-btn__remove-img"),
+    num=document.querySelector(".price-btn__txt");
+    const value=document.querySelector(".favorites");
+    const value1=document.querySelector(".price-cart__btn");
+    const value2=document.querySelector(".spanme");
+    const value3=document.querySelector(".spanyou");
+    let a=0;
+    value1.addEventListener("click",()=>{
+      a++;
+      // a=(a<10)?a:a;
+    //   num.innerText=a;
+      value2.innerText=a;
+      alert("item added to cart");
+      console.log(a);
+    })
+    let b=0;
+    value.addEventListener("click",()=>{
+      alert("item added to favorites");
+      b++;
+      value3.innerText=b;
+      console.log(b);
+      
+    })
+    let c=0;
+    plus.addEventListener("click",()=>{
+        c++;
+        num.innerText=c;
+    })
+    minus.addEventListener("click",()=>{
+        if(c>0){
+            c--;
+            num.innerText=c;
+        }
+    })
+    
+</script>
+<style>
+    main{
+    position: relative;
+    /* top: 100px; */
+    bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 1000px;
+}
+main >.div1{
+    position: sticky;
+    top: 100px;
+    height: 600px;
+    width: 300px;
+}
+main>.div2{
+    height: 700px;
+    width: 500px;
+    text-align: justify;
+}
+.div2>p>i{
+    color:gold;
+}
+.div2>h4{
+    text-align: start;
+}
+
+.price-btnbox {
+    margin-top: 2rem;
+  }
+  
+  .price-btnbox {
+    display: flex;
+    gap: 2.5rem;
+  }
+  
+  .price-btns {
+    width: 200px;
+    height: 50px;
+    position: relative;
+    /* right: 25px; */
+    bottom: 70px;
+    font-size: 1.5rem;
+    /* padding: 0 1.25rem; */
+    border: none;
+    background-color: var(--light-grayish-blue);
+    /* border-radius: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* gap: 3.5rem; */
+    border: solid 2px rgb(195, 190, 190);
+  }
+  .price-btn__add,.price-btn__remove{
+    position: relative;
+    top: 5px;
+    
+    /* border: solid 2px black; */
+  }
+  .price-btn__remove{
+    /* font-size: 1.7rem; */
+    position: relative;
+  }
+  .price-btn__add-img{
+    /* border-radius: 50%; */
+    border-right: solid 2px rgb(195, 190, 190);
+    padding-right: 20px;
+  }
+  .price-btn__remove-img{
+    border-left: solid 2px rgb(195, 190, 190);  
+    /* padding: 5px; */
+    /* position: relative; */
+    padding-left: 20px;
+    /* bottom: 5px; */
+  }
+  .price-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    height: 100%;
+  }
+  
+  .price-btn__txt {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .price-cart__btn {
+    width: 220px;
+    /* box-shadow: 0px 10px 25px 3px rgba(255, 125, 26, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* top: 10px; */
+    /* left: 280px; */
+    bottom: 70px;
+    height: 50px;
+    /* gap: 1.5rem; */
+    background-color: rgb(66, 65, 65);
+    color: white;
+  }
+  .favorites{
+    /* margin-top: 20px; */
+    /* position: sticky; */
+    /* top: 600px; */
+    /* right: 1000px; */
+    position: relative;
+    bottom: 20px;
+    width: 200px;
+    height: 50px;
+    /* background-color: rgb(247, 247, 247);     */
+  }
+
+
+</style>
+<!-- end of product section -->
+{% include 'users/footer.html' %}
+
+{% endblock %}
